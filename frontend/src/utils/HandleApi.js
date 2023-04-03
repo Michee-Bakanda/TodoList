@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'https://backend-todo-2juf.onrender.com'
+const baseUrl = 'https://backend-todo-server-pro-dev.onrender.com'
 
 const getAllToDo = (setToDo)=>{
     axios.get(baseUrl)
@@ -12,6 +12,11 @@ const getAllToDo = (setToDo)=>{
 
 const addTodo = (text, setText, setToDo) => {
 
+    if (text === "") {
+        alert("please enter a todo!");
+        return;
+    }
+
     axios
         .post(`${baseUrl}/save`, { text })
         .then((data) => {
@@ -20,6 +25,8 @@ const addTodo = (text, setText, setToDo) => {
             getAllToDo(setToDo)
         })
         .catch((err) => console.log(err))
+
+       
 
 
 }

@@ -31,7 +31,7 @@ function App() {
             type="text"
             placeholder="Add ToDos..."
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => setText(e.target.value.trim())}
           />
           <div className='add' onClick={isUpdating ? ()=> updateTodo(toDoId, text, setToDo, setText, setIsUpdating)
             :() => addTodo(text, setText, setToDo)}>
